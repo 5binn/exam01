@@ -1,0 +1,15 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container"><br>
+
+    <div class="h3" th:text="${article.title}"></div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="border-bottom my-3 py-2" th:text="${article.content}"></h5>
+            <p class="badge text-bg-secondary"
+               th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:MM')}"></p>
+        </div>
+    </div>
+    <br>
+    <a href="/article/list" class="btn btn-primary" >목록</a>
+</div>
+</html>

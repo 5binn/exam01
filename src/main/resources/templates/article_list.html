@@ -1,0 +1,25 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container"><br>
+    <table class="table">
+        <thead class="table-secondary">
+        <tr>
+            <th scope="col">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article, loop : ${articleList}">
+            <td th:text="${loop.count}"></td>
+            <td>
+                <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
+            </td>
+            <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="/article/create" class="btn btn-primary">게시글등록</a>
+
+</div>
+</html>
